@@ -32,12 +32,22 @@ module.exports = {
         `gatsby-plugin-layout`,
         `gatsby-plugin-mdx`,
         `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
+        {
+          resolve: "gatsby-plugin-react-svg",
+          options: {
+            rule: {
+              include: /images/ // See below to configure properly
+            }
+          }
+        },
         {
           resolve: `gatsby-plugin-manifest`,
           options: {
             name: `gatsby-starter-default`,
             short_name: `starter`,
             start_url: `/`,
+            lang: `en`,
             background_color: `#663399`,
             theme_color: `#663399`,
             display: `minimal-ui`,

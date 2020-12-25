@@ -6,6 +6,8 @@ import styled from 'styled-components';
 const StyledMenu = styled.div`
 
 margin: 20px 0 0 10px;
+display: flex;
+flex-direction: row;
 
 
 `
@@ -20,7 +22,7 @@ const StyledHamburger = styled.button`
   display: inline-block;
   cursor: pointer;
   position: fixed;
-  z-index: 100;
+  z-index: 101;
   right: 20px;
   top: 20px;
   width: 50px;
@@ -48,6 +50,10 @@ const StyledHamburger = styled.button`
         }`
         ) }
         
+    }
+
+    ${({theme})=> theme.media.tablet}{
+        display:none;
     }
 
 ` 
@@ -97,8 +103,9 @@ display:flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-transition: all 0.5s;
-transform: ${({active}) => active ? `translateX(0)` : `translateX(-120vw)`};
+z-index:100;
+transition: transform 0.5s;
+transform: ${({active}) => active ? `translateX(0)` : `translateX(-140vw)`};
 
 li{
     padding: 20px;
@@ -112,6 +119,21 @@ li{
     }
 }
 
+${({theme})=> theme.media.tablet}{
+    position: relative;
+    width: 70%;
+    height: 50px;
+    flex-direction: row;
+    justify-content: start;
+    margin-left: 30px;
+    transform: translateX(0);
+    li{
+        a{
+            font-size: 24px;
+            white-space: nowrap;
+    }
+}
+}
 `
 
 const handleActive = (active, setActive) => {
@@ -125,7 +147,7 @@ const Menu = () => {
             <StyledName>
                 <Link to='/'>Blog NAME</Link>
             </StyledName>
-            <StyledHamburger active={active} onClick={()=>handleActive(active, setActive)}>
+            <StyledHamburger active={active} onClick={()=>handleActive(active, setActive)} aria-label="Menu">
                 <StyledBar active={active}> </StyledBar>
             </StyledHamburger>
             <StyledMenuList active={active}>
