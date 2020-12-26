@@ -72,7 +72,7 @@ flex-direction: column;
 
 `
 
-const indexPage = ({data}) => {
+const IndexPage = ({data}) => {
   return (
     
     <StyledWrapper>
@@ -92,7 +92,7 @@ const indexPage = ({data}) => {
   );
 }
 
-export default indexPage;
+export default IndexPage;
 
 export const query = graphql`
 {

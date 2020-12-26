@@ -59,7 +59,7 @@ font-size: 26px;
 margin-top: 20px;
 `
 
-const aboutPage = ({data}) => {
+const AboutPage = ({data}) => {
     return (
         <Wrapper>
             <Section>
@@ -79,7 +79,7 @@ const aboutPage = ({data}) => {
     );
 }
 
-export default aboutPage;
+export default  AboutPage;
 
 export const query = graphql`
 {

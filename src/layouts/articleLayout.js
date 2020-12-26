@@ -26,6 +26,7 @@ const Img = styled(Image)`
 
 
 const ArticleWrapper = styled.div`
+overflow: hidden;
 display: flex;
 flex-direction: column;
 justify-content: flex-end;
@@ -41,16 +42,15 @@ p{
 }
 `
 
-const articleLayout = ({data}) => {
-console.log(data);
-console.log(data.frontmatter.featuredImage);
+const articleLayout = ({data, clickFunc}) => {
     return (
         <ArticleWrapper>
             <ImageContent>
-                    {data.frontmatter.featuredImage !== null ?  <Img fluid = {data.frontmatter.featuredImage.childImageSharp.fluid}/> : (console.log('nie dziala')) }
+                    {data.frontmatter.featuredImage !== null ?  <Img fluid = {data.frontmatter.featuredImage.childImageSharp.fluid}/> : null }
                 <h3>{data.frontmatter.title}</h3>
             </ImageContent>
-            <p>{data.excerpt}</p>            
+            <p>{data.excerpt}</p>
+            <button onClick={clickFunc}> click</button>            
         </ArticleWrapper>
     );
 }

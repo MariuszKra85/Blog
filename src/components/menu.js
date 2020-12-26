@@ -93,7 +93,7 @@ display: inline-block;
 `
 const StyledMenuList = styled.ul`
 background-color: rgba(${({theme})=> theme.colors.menuBgColor});
-position:absolute;
+position:fixed;
 top:0;
 left:0;
 width: 100vw;
