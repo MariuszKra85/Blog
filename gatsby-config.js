@@ -1,3 +1,9 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`, // or '.env'
+});
+
+const config = require('gatsby-plugin-config');
+
 module.exports = {
     siteMetadata: {
         title: `Blog`,
@@ -9,7 +15,7 @@ module.exports = {
         {
           resolve: `gatsby-source-datocms`,
           options: {
-            apiToken: `ba0f69cef244f6def498d50165b9cc`,
+            apiToken: process.env.GATSBY_API_TOKEN_DATO,
             preview: false,
             disableLiveReload: false,
           },
@@ -39,6 +45,14 @@ module.exports = {
             rule: {
               include: /images/ // See below to configure properly
             }
+          }
+        },
+        {
+          resolve: 'gatsby-plugin-robots-txt',
+          options: {
+            host: 'https://www.blog.com',
+            sitemap: 'https://www.blog.com/sitemap.xml',
+            policy: [{ userAgent: '*', allow: '/' }]
           }
         },
         {

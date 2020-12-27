@@ -21,7 +21,7 @@ const GalleryPage = ({data}) => {
             <p>gallery</p>
             <PhotosWrapper>
                {data.allFile.nodes.map((e)=>(
-                   <GalleryPhoto img={e.childImageSharp.fluid}/>
+                   <GalleryPhoto img={e.childImageSharp.fluid} key={e.name}/>
     ))}
             </PhotosWrapper>
         </GalleryWrapper>
@@ -35,6 +35,7 @@ export const query = graphql`
 {
     allFile(filter: {relativePath: {regex: "/gallery/"}}, sort: {fields: name}) {
     nodes {
+        name
       childImageSharp {
         fluid{
             ...GatsbyImageSharpFluid_tracedSVG

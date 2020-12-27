@@ -14,6 +14,10 @@ const index = ({children}) => {
             <Helmet>
             <title>Blog</title>
             <meta lang='en' />
+            <meta name="description" 
+content="This is an example of a meta description. 
+This will often show up in search results."></meta>
+
             </Helmet>
             <GlobalStyle/>
             <Menu></Menu>

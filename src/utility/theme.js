@@ -4,7 +4,9 @@ export const theme = {
         primary: '#6985db',
         imageTextBg: '0, 0, 0, 1',
         imageTextColor: '255, 255, 255, 1',
-        borderColor: '190, 190, 190'
+        borderColor: '190, 190, 190',
+        buttonBgColor: '0, 0, 0, 1',
+        buttonTextColor: '255, 255, 255, 1'
     },
     media: {
         tablet: '@media (min-width: 760px)',
